@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<HTML lang="en">
+    <head>
+        <title>Gerador de senhas!</title>
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+                text-align: center;
+                height: 100vh;
+                background-color: #3b3b3b;
+            }
+            .input-box {
+                width: 450px;
+            }
+            .input-box h2 {
+               font-size: 30px;
+               color: #ffffff;
+            }
+            .input-box input {
+                position: relative;
+                height: 40px;
+                width: 80%;
+                background: #e1e1e1;
+                border: solid 3px #ffffff;
+                border-radius: 8px;
+                color: #3b3b3b;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                outline: none;
+                font-size: 20px;
+                padding: 0 20px;
+            }
+            .input-box #btn {
+                position: relative;
+                background: #e1e1e1;
+                color: #3b3b3b;
+                cursor: pointer;
+                font-size: 20px;
+                display: inline-block;
+                padding: 10 15px;
+                margin-top: 15px;
+                border-radius: 8px;
+            }
+            .input-box #btn:hover {
+                background: #ffffff;
+                padding: 20 25px;
+            }
+            .input-box #btn:active {
+                background: #ccbbff;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="input-box">
+            <h2>GERADOR DE SENHAS</h2>
+            <input type="text" placeholder="GERAR SENHA" id="password" readonly="">
+            <div id="btn" onclick="getPassword()">GERAR SENHA</div>
+        </div>
+        <script>
+            function getPassword() {
+                var chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()+?><:;{}[]"
+                var passwordLength = 16;
+                var password = "";
+                
+                for (var i = 0; i < passwordLength; i++) {
+                    var randomNumber = Math.floor(Math.random() * chars.length);
+                    password += chars.substring(randomNumber, randomNumber + 1);
+                }
+                document.getElementById('password').value = password
+            }
+        </script>
+    </body>
+</HTML>
